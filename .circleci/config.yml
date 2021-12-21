@@ -6,12 +6,12 @@ version: 2
 
 orbs:
   docker: circleci/docker@1.7.0
- 
+  
 workflows:
-  example-workflow:
-    jobs:
-      - docker/publish:
-          dockerfile: dockerfile 
-          image: nestdiscordbot 
-          docker-username:  $DOCKER_LOGIN 
-          docker-password:  $DOCKER_PASSWORD
+    example-workflow:
+      jobs:
+        - docker/publish:
+            docker-username: $DOCKER_LOGIN  
+            docker-password: $DOCKER_PASSWORD 
+            dockerfile: dockerfile 
+            image: nestdiscordbot 
