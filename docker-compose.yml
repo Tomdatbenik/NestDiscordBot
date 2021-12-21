@@ -1,8 +1,9 @@
 version: '3.7'
 services:
   discordbot:
-    build:
-      context: ./
+    image: tomdatbenik/nestdiscordbot:latest
+    # build:
+    #   context: ./discordbot
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
 
