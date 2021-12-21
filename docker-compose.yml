@@ -2,7 +2,7 @@ version: '3.7'
 services:
   discordbot:
     build:
-      context: ./discordbot
+      context: ./
     environment:
-      - BOT_TOKEN=ODg2ODkwODk2OTI1MjkwNDk2.YT8Lgw.zwG1eIp9V2wZlRzALPdB3IWm4J0
+      - BOT_TOKEN=${BOT_TOKEN}
 
