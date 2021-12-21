@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  discordbot:
+    build:
+      context: ./discordbot
+    environment:
+      - BOT_TOKEN=ODg2ODkwODk2OTI1MjkwNDk2.YT8Lgw.zwG1eIp9V2wZlRzALPdB3IWm4J0
+
