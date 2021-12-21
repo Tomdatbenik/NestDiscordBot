@@ -2,13 +2,17 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
-
 orbs:
   docker: circleci/docker@1.7.0
-  
+
+jobs:
+  imajob:
+    docker:
+      - image: cimg/node:17.1.0  
+
 workflows:
-    example-workflow:
+  version: 2
+    docker-publish-workflow:
       jobs:
         - docker/publish:
             docker-username: $DOCKER_LOGIN  
