@@ -12,10 +12,10 @@ jobs:
 
 workflows:
   version: 2
-    docker-publish-workflow:
-      jobs:
-        - docker/publish:
-            docker-username: $DOCKER_LOGIN  
-            docker-password: $DOCKER_PASSWORD 
-            dockerfile: dockerfile 
-            image: nestdiscordbot 
+  docker-publish-workflow:
+    jobs:
+      - docker/publish:
+          docker-username: $DOCKER_LOGIN  
+          docker-password: $DOCKER_PASSWORD 
+          dockerfile: dockerfile 
+          image: nestdiscordbot 
