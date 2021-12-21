@@ -3,6 +3,7 @@ executors:
   docker-publisher:
     environment:
       IMAGE_NAME: tomdatbenik/nestdiscordbot
+      BOT_TOKEN: $BOT_TOKEN
     docker:
       - image: circleci/buildpack-deps:stretch
 jobs:
