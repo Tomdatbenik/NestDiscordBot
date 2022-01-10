@@ -59,6 +59,8 @@ workflows:
       - test:
           name: tests
       - build:
+          requires:
+                - test
           filters:
             branches:
               only: main
