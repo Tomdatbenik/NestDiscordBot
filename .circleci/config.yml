@@ -54,6 +54,8 @@ workflows:
           name: tests
   build-main:
     jobs:
+      - test:
+          name: tests
       - build:
           filters:
             branches:
