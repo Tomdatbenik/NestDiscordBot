@@ -6,15 +6,24 @@ executors:
     docker:
       - image: circleci/buildpack-deps:stretch
 jobs:
+  tests:
+      jobs:
+        test:
+            parameters:
+              node-version:
+                type: string
+            executor: 
+            steps:
+              - checkout
+              - node/install:
+                  node-version: << parameters.node-version >>
+                  install-npm: true
+              - run: npm run test
   build:
     executor: docker-publisher
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-        name: Run tests
-        command: |
-          npm run test
       - run:
           name: Build Docker image
           command: |
@@ -43,6 +52,9 @@ jobs:
             docker push $IMAGE_NAME:latest
 workflows:
   version: 2
+  tests:
+    name: test
+    node-version: 16.13.1
   build-main:
     jobs:
       - build:
