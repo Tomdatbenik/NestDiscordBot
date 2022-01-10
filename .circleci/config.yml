@@ -60,7 +60,7 @@ workflows:
           name: tests
       - build:
           requires:
-            - build
+            - test
           filters:
             branches:
               only: main
