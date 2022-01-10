@@ -3,7 +3,6 @@ executors:
   docker-publisher:
     environment:
       IMAGE_NAME: tomdatbenik/nestdiscordbot
-      BOT_TOKEN: "$BOT_TOKEN"
     docker:
       - image: circleci/buildpack-deps:stretch
 jobs:
@@ -12,6 +11,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - run:
+        name: Run tests
+        command: |
+          npm run test
       - run:
           name: Build Docker image
           command: |
