@@ -54,10 +54,6 @@ jobs:
             docker push $IMAGE_NAME:latest
 workflows:
   version: 2
-  tests:
-   jobs:
-      - test:
-          name: tests
   build-main:
     jobs:
       - test:
