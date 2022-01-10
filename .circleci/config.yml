@@ -5,17 +5,14 @@ executors:
       IMAGE_NAME: tomdatbenik/nestdiscordbot
     docker:
       - image: circleci/buildpack-deps:stretch
+  node:
+    docker:
+      - image: cimg/node:16.13.1
 jobs:
   test:
-    parameters:
-      node-version:
-        type: string
-    executor: linux
+    executor: node
     steps:
       - checkout
-      - node/install:
-          node-version: << parameters.node-version >>
-          install-npm: true
       - run: npm run test
   build:
     executor: docker-publisher
@@ -54,7 +51,6 @@ workflows:
    jobs:
       - test:
           name: tests
-          node-version: 16.13.1
   build-main:
     jobs:
       - build:
