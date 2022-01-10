@@ -13,6 +13,7 @@ jobs:
     executor: node
     steps:
       - checkout
+      - run: npm i
       - run: npm run test
   build:
     executor: docker-publisher
